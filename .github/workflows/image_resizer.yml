@@ -1,14 +1,17 @@
+---
 name: Resize Images
-
 on:
   push:
     branches:
       - main
-
 jobs:
   resize_images:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
+        with: 
+         python-version: 3.8
+         install:
+          - pip install Pillow
       - run: python pil.py
